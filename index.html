@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Computer Architecture Explorer helps students understand CPUs, memory, storage, buses, operating systems, and data flow through interactive visuals."
+    />
+    <title>Computer Architecture Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+    <link rel="stylesheet" href="./css/animations.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+          <a class="brand" href="#home" aria-label="Computer Architecture Explorer home">
+            <span class="brand-mark">CA</span>
+            <span class="brand-text">Computer Architecture Explorer</span>
+          </a>
+
+          <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+
+          <div class="nav-panel">
+            <ul class="nav-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#explore">Explore</a></li>
+              <li><a href="#cpu">CPU</a></li>
+              <li><a href="#memory">Memory</a></li>
+              <li><a href="#storage">Storage</a></li>
+              <li><a href="#io">I/O</a></li>
+              <li><a href="#buses">Buses</a></li>
+              <li><a href="#data-flow">Data Flow</a></li>
+              <li><a href="#os">OS Concepts</a></li>
+              <li><a href="#quiz">Quiz</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+              <button class="icon-button search-toggle" aria-label="Open search">⌕</button>
+              <button class="icon-button theme-toggle" aria-label="Toggle color theme">☼</button>
+            </div>
+          </div>
+        </nav>
+        <div class="progress-bar"><span id="progressFill"></span></div>
+      </header>
+
+      <main>
+        <section id="home" class="hero section container">
+          <div class="hero-copy">
+            <p class="eyebrow">Interactive computer science learning</p>
+            <h1>COMPUTER ARCHITECTURE EXPLORER</h1>
+            <p class="intro">
+              Understand what happens inside a computer — from pressing a key to executing a program.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#explore">Start Exploring</a>
+              <a class="secondary-btn" href="#data-flow">How Computers Work</a>
+              <button id="startLearningBtn" class="secondary-btn" type="button">Start Learning Mode</button>
+            </div>
+            <div class="stat-row">
+              <div class="stat-box">
+                <strong>10+</strong>
+                <span>Core topics</span>
+              </div>
+              <div class="stat-box">
+                <strong>Interactive</strong>
+                <span>Visual models</span>
+              </div>
+              <div class="stat-box">
+                <strong>Beginner</strong>
+                <span>Friendly</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-label="Animated computer architecture diagram">
+            <div class="computer-diagram">
+              <div class="node cpu-node">
+                <span>CPU</span>
+                <small>ALU + Control</small>
+                <small>Registers</small>
+              </div>
+              <div class="node memory-node">
+                <span>Memory</span>
+                <small>RAM</small>
+              </div>
+              <div class="node storage-node">
+                <span>Storage</span>
+                <small>SSD / HDD</small>
+              </div>
+              <div class="node io-node">
+                <span>I/O Devices</span>
+                <small>Keyboard / Display</small>
+              </div>
+              <div class="wire wire-1"></div>
+              <div class="wire wire-2"></div>
+              <div class="wire wire-3"></div>
+              <div class="particles">
+                <span class="p p1"></span>
+                <span class="p p2"></span>
+                <span class="p p3"></span>
+                <span class="p p4"></span>
+                <span class="p p5"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="explore" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Explore</p>
+            <h2>Architecture map</h2>
+          </div>
+
+          <div class="explore-grid">
+            <article class="explore-card" data-target="cpu-panel">
+              <h3>CPU</h3>
+              <ul>
+                <li>ALU</li>
+                <li>Control Unit</li>
+                <li>Registers</li>
+                <li>Cache</li>
+              </ul>
+            </article>
+            <article class="explore-card" data-target="memory-panel">
+              <h3>Memory</h3>
+              <ul>
+                <li>Registers</li>
+                <li>Cache</li>
+                <li>RAM</li>
+                <li>ROM</li>
+              </ul>
+            </article>
+            <article class="explore-card" data-target="storage-panel">
+              <h3>Storage</h3>
+              <ul>
+                <li>SSD</li>
+                <li>HDD</li>
+              </ul>
+            </article>
+            <article class="explore-card" data-target="io-panel">
+              <h3>Input</h3>
+              <ul>
+                <li>Keyboard</li>
+                <li>Mouse</li>
+                <li>Microphone</li>
+              </ul>
+            </article>
+            <article class="explore-card" data-target="output-panel">
+              <h3>Output</h3>
+              <ul>
+                <li>Monitor</li>
+                <li>Speaker</li>
+                <li>Printer</li>
+              </ul>
+            </article>
+            <article class="explore-card" data-target="bus-panel">
+              <h3>Communication</h3>
+              <ul>
+                <li>Data Bus</li>
+                <li>Address Bus</li>
+                <li>Control Bus</li>
+              </ul>
+            </article>
+          </div>
+
+          <aside class="info-panel" id="componentDetails" aria-live="polite">
+            <div class="info-header">
+              <span class="pill">Component</span>
+              <button class="bookmark-btn" data-bookmark="CPU" aria-label="Bookmark CPU">☆</button>
+            </div>
+            <h3 id="detailTitle">CPU</h3>
+            <div class="detail-block">
+              <h4>Simple definition</h4>
+              <p id="simpleDef">The CPU is the main processing unit that executes instructions and controls the computer.</p>
+            </div>
+            <div class="detail-block">
+              <h4>Technical definition</h4>
+              <p id="techDef">The central processing unit reads instructions, manages the execution flow, and coordinates arithmetic, logic, and memory operations.</p>
+            </div>
+            <div class="detail-block">
+              <h4>What it does</h4>
+              <p id="whatItDoes">It performs calculations, compares values, and directs data movement across the system.</p>
+            </div>
+            <div class="detail-block">
+              <h4>Why it matters</h4>
+              <p id="whyImportant">Without the CPU, a computer cannot interpret instructions or run programs.</p>
+            </div>
+            <div class="detail-block">
+              <h4>Example</h4>
+              <p id="exampleText">A calculator app uses the CPU to add numbers and update the display.</p>
+            </div>
+            <div class="detail-block">
+              <h4>Related components</h4>
+              <p id="relatedText">RAM, registers, cache, buses, memory, and storage.</p>
+            </div>
+          </aside>
+        </section>
+
+        <section id="cpu" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">CPU</p>
+            <h2>Inside the CPU</h2>
+          </div>
+          <div class="cpu-diagram-wrap">
+            <div class="cpu-schematic">
+              <div class="cpu-root">CPU</div>
+              <div class="branch branch-alu">ALU</div>
+              <div class="branch branch-control">Control<br />Unit</div>
+              <div class="branch branch-registers">Registers</div>
+              <div class="branch branch-cache">Cache</div>
+            </div>
+          </div>
+          <div class="component-list inline-cards">
+            <button class="mini-card cpu-spot" data-component="alu">ALU</button>
+            <button class="mini-card cpu-spot" data-component="control-unit">Control Unit</button>
+            <button class="mini-card cpu-spot" data-component="registers">Registers</button>
+            <button class="mini-card cpu-spot" data-component="cache">Cache</button>
+          </div>
+        </section>
+
+        <section id="alu" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">ALU</p>
+            <h2>Arithmetic Logic Unit</h2>
+          </div>
+          <div class="two-column">
+            <div class="concept-box">
+              <h3>Arithmetic</h3>
+              <ul class="tag-list">
+                <li>Addition</li>
+                <li>Subtraction</li>
+                <li>Multiplication</li>
+                <li>Division</li>
+              </ul>
+            </div>
+            <div class="concept-box">
+              <h3>Logical</h3>
+              <ul class="tag-list">
+                <li>AND</li>
+                <li>OR</li>
+                <li>NOT</li>
+                <li>XOR</li>
+              </ul>
+            </div>
+            <div class="concept-box">
+              <h3>Comparison</h3>
+              <ul class="tag-list">
+                <li>Equal</li>
+                <li>Greater than</li>
+                <li>Less than</li>
+              </ul>
+            </div>
+            <div class="concept-box calculator-box">
+              <h3>Mini calculator</h3>
+              <div class="calc-row">
+                <input id="aluInput" type="text" value="15 + 7" aria-label="ALU input example" />
+                <button id="aluCalculateBtn" class="primary-btn small-btn">Evaluate</button>
+              </div>
+              <div class="calc-visual" aria-live="polite">
+                <div class="calc-flow">
+                  <span>Input</span>
+                  <span>↓</span>
+                  <span>ALU</span>
+                  <span>↓</span>
+                  <strong id="aluOutput">22</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="control-unit" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Control Unit</p>
+            <h2>The Control Unit coordinates the CPU</h2>
+          </div>
+          <div class="flow-diagram animate-flow" aria-label="Control unit flow chart">
+            <span>Instruction</span>
+            <span>↓</span>
+            <span>Control Unit</span>
+            <span>↓</span>
+            <span>Decode</span>
+            <span>↓</span>
+            <span>Control Signals</span>
+            <span>↓</span>
+            <span>ALU / Registers / Memory</span>
+          </div>
+        </section>
+
+        <section id="registers" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Registers</p>
+            <h2>Small but extremely fast CPU storage</h2>
+          </div>
+          <div class="register-grid">
+            <button class="register-card" data-register="Program Counter">Program Counter</button>
+            <button class="register-card" data-register="Instruction Register">Instruction Register</button>
+            <button class="register-card" data-register="Accumulator">Accumulator</button>
+            <button class="register-card" data-register="General Purpose Registers">General Purpose Registers</button>
+            <button class="register-card" data-register="Stack Pointer">Stack Pointer</button>
+            <button class="register-card" data-register="Status / Flag Register">Status / Flag Register</button>
+          </div>
+          <div id="registerDetail" class="info-panel register-panel"></div>
+        </section>
+
+        <section id="fetch-cycle" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Execution Cycle</p>
+            <h2>How the CPU Executes an Instruction</h2>
+          </div>
+          <div class="cycle-box">
+            <div id="cycleFlow" class="flow-diagram cycle-flow">
+              <span>FETCH</span>
+              <span>↓</span>
+              <span>DECODE</span>
+              <span>↓</span>
+              <span>EXECUTE</span>
+              <span>↓</span>
+              <span>FETCH</span>
+              <span>↓</span>
+              <span>…</span>
+            </div>
+            <button id="runCycleBtn" class="primary-btn">Run Cycle</button>
+          </div>
+        </section>
+
+        <section id="memory" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Memory Hierarchy</p>
+            <h2>Memory pyramid</h2>
+          </div>
+          <div class="memory-pyramid" aria-label="Memory hierarchy pyramid">
+            <button class="pyramid-layer l1" data-memory="Registers">REGISTERS</button>
+            <button class="pyramid-layer l2" data-memory="Cache">CACHE</button>
+            <button class="pyramid-layer l3" data-memory="RAM">RAM</button>
+            <button class="pyramid-layer l4" data-memory="SSD">SSD</button>
+            <button class="pyramid-layer l5" data-memory="HDD">HDD</button>
+          </div>
+          <div class="memory-facts">
+            <div class="fact-card"><span>Speed</span><strong>Extremely Fast → Slow</strong></div>
+            <div class="fact-card"><span>Capacity</span><strong>Very Small → Very Large</strong></div>
+            <div class="fact-card"><span>Cost</span><strong>High → Lower</strong></div>
+            <div class="fact-card"><span>Distance from CPU</span><strong>Closest → Farther</strong></div>
+          </div>
+        </section>
+
+        <section id="cache" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Cache</p>
+            <h2>Cache explorer</h2>
+          </div>
+          <div class="cache-flow">
+            <span>CPU</span>
+            <span>↓</span>
+            <span>L1</span>
+            <span>↓</span>
+            <span>L2</span>
+            <span>↓</span>
+            <span>L3</span>
+            <span>↓</span>
+            <span>RAM</span>
+          </div>
+          <div class="cache-sim">
+            <button id="accessDataBtn" class="primary-btn">Access Data</button>
+            <div id="cacheResult" class="cache-status">Status: ready</div>
+          </div>
+        </section>
+
+        <section id="ram" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">RAM</p>
+            <h2>Random Access Memory</h2>
+          </div>
+          <div class="ram-table">
+            <div class="ram-header"><span>Address</span><span>Value</span></div>
+            <button class="ram-row" data-address="0x001" data-value="25"><span>0x001</span><span>25</span></button>
+            <button class="ram-row" data-address="0x002" data-value="17"><span>0x002</span><span>17</span></button>
+            <button class="ram-row" data-address="0x003" data-value="42"><span>0x003</span><span>42</span></button>
+            <button class="ram-row" data-address="0x004" data-value="91"><span>0x004</span><span>91</span></button>
+          </div>
+          <div id="ramDetail" class="info-panel ram-panel">Click a memory address to see Address → Data.</div>
+        </section>
+
+        <section id="storage" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Storage</p>
+            <h2>SSD vs HDD</h2>
+          </div>
+          <div class="storage-grid">
+            <div class="storage-card ssd-card">
+              <h3>SSD</h3>
+              <div class="disk-visual flash-visual">[ FLASH CELLS ]</div>
+              <ul>
+                <li>Flash memory</li>
+                <li>No moving parts</li>
+                <li>Faster</li>
+                <li>Lower latency</li>
+              </ul>
+            </div>
+            <div class="storage-card hdd-card">
+              <h3>HDD</h3>
+              <div class="disk-visual disk-visual-spin">[ ROTATING DISK ]</div>
+              <ul>
+                <li>Magnetic disk</li>
+                <li>Moving parts</li>
+                <li>Slower</li>
+                <li>Usually cheaper per GB</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="buses" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Bus System</p>
+            <h2>Three major buses</h2>
+          </div>
+          <div class="bus-diagram">
+            <div class="bus-box">CPU</div>
+            <div class="bus-connection data-bus">Data Bus</div>
+            <div class="bus-connection addr-bus">Address Bus</div>
+            <div class="bus-connection ctrl-bus">Control Bus</div>
+            <div class="bus-box memory-box">Memory</div>
+          </div>
+          <div class="bus-legend">
+            <div class="legend-item"><span class="data-line"></span><strong>Data Bus</strong> carries actual data.</div>
+            <div class="legend-item"><span class="addr-line"></span><strong>Address Bus</strong> carries memory addresses.</div>
+            <div class="legend-item"><span class="ctrl-line"></span><strong>Control Bus</strong> carries control signals.</div>
+          </div>
+        </section>
+
+        <section id="io" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Input / Output</p>
+            <h2>Interactive I/O devices</h2>
+          </div>
+          <div class="io-grid">
+            <div class="io-group">
+              <h3>Input</h3>
+              <button class="io-card" data-device="Keyboard">Keyboard</button>
+              <button class="io-card" data-device="Mouse">Mouse</button>
+              <button class="io-card" data-device="Microphone">Microphone</button>
+              <button class="io-card" data-device="Camera">Camera</button>
+            </div>
+            <div class="io-group">
+              <h3>Output</h3>
+              <button class="io-card" data-device="Monitor">Monitor</button>
+              <button class="io-card" data-device="Speaker">Speaker</button>
+              <button class="io-card" data-device="Printer">Printer</button>
+            </div>
+          </div>
+          <div id="ioDetail" class="info-panel io-panel">Click a device to inspect its route through the system.</div>
+        </section>
+
+        <section id="data-flow" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Data Flow</p>
+            <h2>What Happens When You Open a Program?</h2>
+          </div>
+          <div class="packet-flow" aria-label="Data packet travels from user to screen">
+            <span>User</span>
+            <span>↓</span>
+            <span>Input Device</span>
+            <span>↓</span>
+            <span>Operating System</span>
+            <span>↓</span>
+            <span>Storage</span>
+            <span>↓</span>
+            <span>RAM</span>
+            <span>↓</span>
+            <span>CPU</span>
+            <span>↓</span>
+            <span>GPU / Display</span>
+            <span>↓</span>
+            <span>Screen</span>
+          </div>
+          <button id="animateDataFlowBtn" class="primary-btn">Animate Data Flow</button>
+        </section>
+
+        <section id="key-flow" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">I/O Simulation</p>
+            <h2>What Happens When You Press a Key?</h2>
+          </div>
+          <button id="pressKeyBtn" class="primary-btn">Press A</button>
+          <div id="keyFlow" class="packet-flow key-flow" aria-live="polite">
+            <span>Keyboard</span>
+            <span>↓</span>
+            <span>Keyboard Controller</span>
+            <span>↓</span>
+            <span>Operating System</span>
+            <span>↓</span>
+            <span>CPU</span>
+            <span>↓</span>
+            <span>Application</span>
+            <span>↓</span>
+            <span>Display</span>
+          </div>
+          <p class="result-text" id="keyResult">The letter "A" appears on your screen.</p>
+        </section>
+
+        <section id="gpu" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">CPU vs GPU</p>
+            <h2>Specialized processing</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card cpu-card">
+              <h3>CPU</h3>
+              <ul>
+                <li><strong>Main purpose:</strong> general-purpose control and logic</li>
+                <li><strong>Architecture:</strong> a few powerful cores</li>
+                <li><strong>Parallelism:</strong> moderate</li>
+                <li><strong>Typical workloads:</strong> operating systems, apps, logic</li>
+                <li><strong>Examples:</strong> browser, spreadsheet, compiler</li>
+              </ul>
+            </div>
+            <div class="compare-card gpu-card">
+              <h3>GPU</h3>
+              <ul>
+                <li><strong>Main purpose:</strong> parallel graphics and large datasets</li>
+                <li><strong>Architecture:</strong> many smaller cores</li>
+                <li><strong>Parallelism:</strong> very high</li>
+                <li><strong>Typical workloads:</strong> rendering, AI, simulations</li>
+                <li><strong>Examples:</strong> video playback, 3D graphics, ML</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="architecture-sizes" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Architecture</p>
+            <h2>32-bit vs 64-bit</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h3>32-bit</h3>
+              <p>Smaller address space and fewer memory-addressing options.</p>
+              <ul>
+                <li>Legacy compatibility</li>
+                <li>Older software</li>
+                <li>Limited address range</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h3>64-bit</h3>
+              <p>Much larger address space and broader memory support.</p>
+              <ul>
+                <li>Modern operating systems</li>
+                <li>Large memory support</li>
+                <li>Often runs 32-bit software in compatibility mode</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="virtual-memory" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Virtual Memory</p>
+            <h2>Storage can extend available memory</h2>
+          </div>
+          <div class="virtual-memory-flow">
+            <span>RAM</span>
+            <span>│</span>
+            <span>Active data</span>
+            <span>│</span>
+            <span>Memory pressure</span>
+            <span>↓</span>
+            <span>Storage</span>
+          </div>
+          <p class="supporting-copy">Virtual memory allows the operating system to use storage as an extension of RAM when memory becomes tight. Paging moves blocks of data between memory and storage.</p>
+        </section>
+
+        <section id="process-thread" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Process & Thread</p>
+            <h2>Execution units</h2>
+          </div>
+          <div class="process-thread">
+            <div class="process-box">
+              <strong>PROCESS</strong>
+              <ul>
+                <li>Thread 1</li>
+                <li>Thread 2</li>
+                <li>Thread 3</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="scheduling" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Scheduling</p>
+            <h2>CPU Scheduling Visualizer</h2>
+          </div>
+          <div class="scheduler-form">
+            <label for="processInput">Processes</label>
+            <input id="processInput" type="text" value="P1 = 5, P2 = 3, P3 = 7, P4 = 2" />
+            <select id="algoSelect">
+              <option value="fcfs">FCFS</option>
+              <option value="sjf">SJF</option>
+              <option value="roundrobin">Round Robin</option>
+              <option value="priority">Priority Scheduling</option>
+            </select>
+            <button id="scheduleBtn" class="primary-btn">Calculate</button>
+          </div>
+          <div id="ganttChart" class="gantt-chart"></div>
+          <div id="scheduleStats" class="schedule-stats"></div>
+        </section>
+
+        <section id="interrupts" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Interrupts</p>
+            <h2>CPU pauses, handles input, resumes work</h2>
+          </div>
+          <div class="flow-diagram interrupt-flow">
+            <span>CPU is working</span>
+            <span>↓</span>
+            <span>Keyboard input</span>
+            <span>↓</span>
+            <span>Interrupt</span>
+            <span>↓</span>
+            <span>CPU pauses current work</span>
+            <span>↓</span>
+            <span>Interrupt handler</span>
+            <span>↓</span>
+            <span>CPU resumes</span>
+          </div>
+          <button id="triggerInterruptBtn" class="primary-btn">Trigger Interrupt</button>
+        </section>
+
+        <section id="os" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Operating System</p>
+            <h2>Where does the OS fit?</h2>
+          </div>
+          <div class="os-flow">
+            <span>User</span>
+            <span>↓</span>
+            <span>Application</span>
+            <span>↓</span>
+            <span>Operating System</span>
+            <span>↓</span>
+            <span>Hardware</span>
+          </div>
+          <div class="tag-list compact-list">
+            <span>Process management</span>
+            <span>Memory management</span>
+            <span>File management</span>
+            <span>Device management</span>
+            <span>Security</span>
+          </div>
+        </section>
+
+        <section id="boot" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Boot Process</p>
+            <h2>Computer boot timeline</h2>
+          </div>
+          <div class="flow-diagram boot-flow">
+            <span>Power ON</span>
+            <span>↓</span>
+            <span>Firmware / UEFI</span>
+            <span>↓</span>
+            <span>Hardware Initialization</span>
+            <span>↓</span>
+            <span>Bootloader</span>
+            <span>↓</span>
+            <span>OS Kernel</span>
+            <span>↓</span>
+            <span>Services</span>
+            <span>↓</span>
+            <span>Login Screen</span>
+          </div>
+        </section>
+
+        <section id="filesystem" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">File System</p>
+            <h2>Educational file tree</h2>
+          </div>
+          <pre class="tree-view">C:
+├── Users
+│   └── Student
+│       ├── Documents
+│       ├── Downloads
+│       └── Pictures
+└── Program Files</pre>
+          <div class="tag-list compact-list">
+            <span>File</span>
+            <span>Folder</span>
+            <span>Path</span>
+            <span>Extension</span>
+            <span>File system</span>
+          </div>
+        </section>
+
+        <section id="binary" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Binary</p>
+            <h2>Binary Explorer</h2>
+          </div>
+          <div class="converter-box">
+            <label for="decimalInput">Decimal</label>
+            <input id="decimalInput" type="number" value="10" />
+            <button id="convertBinaryBtn" class="primary-btn">Convert</button>
+          </div>
+          <div id="binaryResult" class="result-box"></div>
+        </section>
+
+        <section id="hex" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Hexadecimal</p>
+            <h2>Hexadecimal Explorer</h2>
+          </div>
+          <div class="converter-box">
+            <label for="hexInput">Hex / Decimal</label>
+            <input id="hexInput" type="text" value="2A" />
+            <button id="convertHexBtn" class="primary-btn">Convert</button>
+          </div>
+          <div id="hexResult" class="result-box"></div>
+        </section>
+
+        <section id="architecture-types" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Architecture Types</p>
+            <h2>Instruction and data path styles</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h3>Von Neumann</h3>
+              <div class="mini-diagram">Memory → CPU → Data/Instructions</div>
+            </div>
+            <div class="compare-card">
+              <h3>Harvard</h3>
+              <div class="mini-diagram">Instructions + Data in separate paths</div>
+            </div>
+            <div class="compare-card">
+              <h3>Modified Harvard</h3>
+              <div class="mini-diagram">Separate caches with shared memory access</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="risc-cisc" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">RISC vs CISC</p>
+            <h2>Instruction set design</h2>
+          </div>
+          <div class="compare-grid">
+            <div class="compare-card">
+              <h3>RISC</h3>
+              <ul>
+                <li>Simpler instruction design</li>
+                <li>Often fixed-length instructions</li>
+                <li>Load/store style is common</li>
+                <li>Focus on simple operations</li>
+              </ul>
+            </div>
+            <div class="compare-card">
+              <h3>CISC</h3>
+              <ul>
+                <li>More complex instructions</li>
+                <li>Often variable-length instructions</li>
+                <li>Memory operations can be integrated into instructions</li>
+                <li>Focus on richer instructions</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="glossary" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Glossary</p>
+            <h2>Searchable terminology</h2>
+          </div>
+          <input id="glossarySearch" type="search" placeholder="Search terms like cache, CPU, RAM..." aria-label="Search glossary" />
+          <div id="glossaryList" class="glossary-list"></div>
+        </section>
+
+        <section id="quiz" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Quiz</p>
+            <h2>Knowledge check</h2>
+          </div>
+          <div class="quiz-card">
+            <p>Which component performs arithmetic and logical operations?</p>
+            <div class="quiz-options">
+              <button class="quiz-option" data-correct="false">RAM</button>
+              <button class="quiz-option" data-correct="true">ALU</button>
+              <button class="quiz-option" data-correct="false">SSD</button>
+              <button class="quiz-option" data-correct="false">Keyboard</button>
+            </div>
+            <p id="quizResult" class="quiz-result" aria-live="polite">Choose an answer.</p>
+          </div>
+        </section>
+
+        <section id="bookmarks" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">Bookmarks</p>
+            <h2>My Bookmarks</h2>
+          </div>
+          <div class="info-panel">
+            <ul id="bookmarksList" class="tag-list compact-list"></ul>
+          </div>
+        </section>
+
+        <section id="about" class="section container">
+          <div class="section-heading">
+            <p class="eyebrow">About</p>
+            <h2>Built for learning</h2>
+          </div>
+          <p class="supporting-copy">This educational site explains how a computer works from the inside out using simple definitions, interactive diagrams, and practical examples. It is designed to help BCA and CS students build intuition without overwhelming them with textbook detail.</p>
+          <div class="did-you-know-grid">
+            <article class="did-you-know-card">
+              <h3>Did you know?</h3>
+              <p>CPU registers are inside the processor and are designed for very fast access.</p>
+            </article>
+            <article class="did-you-know-card">
+              <h3>Did you know?</h3>
+              <p>Cache helps reduce the time the CPU waits for data from slower memory.</p>
+            </article>
+            <article class="did-you-know-card">
+              <h3>Did you know?</h3>
+              <p>The operating system acts as a bridge between applications and hardware.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-wrap">
+          <div>
+            <h3>Computer Architecture Explorer</h3>
+            <p>Built for learning how computers work from the inside out.</p>
+          </div>
+          <div class="footer-links">
+            <a href="#explore">Explore</a>
+            <a href="#glossary">Glossary</a>
+            <a href="#learning-mode">Learning Mode</a>
+            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="#about">About</a>
+          </div>
+        </div>
+        <div class="copyright">© 2026 Computer Architecture Explorer</div>
+      </footer>
+    </div>
+
+    <div id="searchOverlay" class="search-overlay hidden" aria-label="Search overlay">
+      <div class="search-panel">
+        <div class="search-header">
+          <input id="globalSearchInput" type="search" placeholder="Search concepts..." aria-label="Search for concepts" />
+          <button class="close-search" aria-label="Close search">✕</button>
+        </div>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
+
+    <div id="learning-mode" class="learning-modal hidden" aria-label="Learning mode panel">
+      <div class="learning-panel">
+        <h3>Start Learning Mode</h3>
+        <ol id="learningSequence"></ol>
+        <button id="closeLearningBtn" class="primary-btn">Close</button>
+      </div>
+    </div>
+
+    <script src="./js/storage-local.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/search.js"></script>
+    <script src="./js/cpu.js"></script>
+    <script src="./js/memory.js"></script>
+    <script src="./js/storage.js"></script>
+    <script src="./js/dataflow.js"></script>
+    <script src="./js/scheduling.js"></script>
+    <script src="./js/glossary.js"></script>
+    <script src="./js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+.animate-flow span {
+  animation: pulseFade 1.4s ease-in-out infinite;
+}
+
+.animate-flow span:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.animate-flow span:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+@keyframes pulseFade {
+  0%, 100% { opacity: 0.45; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+}
+
+.packet-flow span {
+  position: relative;
+}
+
+.packet-flow span:nth-child(odd)::after {
+  content: "";
+  position: absolute;
+  inset: -5px -8px;
+  border-radius: 999px;
+  background: rgba(103, 232, 249, 0.08);
+  z-index: -1;
+}
+
+.data-flow-active .packet-flow span {
+  color: var(--accent);
+}
+
+.cycle-flow .active {
+  color: var(--accent);
+  font-weight: 800;
+}
